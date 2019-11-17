@@ -18,7 +18,7 @@ Route::get('/', function () {
 Route::get('/testing', function () {
     echo 'This is Testing';
 });
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/blogs/show/{blog}', 'BlogController@show')->name('blog:show');
@@ -29,7 +29,7 @@ Route::group([
     'as' => 'blog:'
 ], function(){
     Route::get('/create', 'BlogController@create')->name('create');
-    Route::post('/create', 'BlogController@store')->name('store');      
+    Route::post('/create', 'BlogController@store')->name('store');
 
     Route::get('/edit/{blog}', 'BlogController@edit')->name('edit');
     Route::post('/edit/{blog}', 'BlogController@update')->name('update');
